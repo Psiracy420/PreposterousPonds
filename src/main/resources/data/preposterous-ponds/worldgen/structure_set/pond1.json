@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "preposterous-ponds:pond1",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 42069420,
+    "spacing": 12,
+    "separation": 6
+  }
+}

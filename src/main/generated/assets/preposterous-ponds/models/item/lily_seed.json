@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "preposterous-ponds:item/lily_seed"
+  }
+}

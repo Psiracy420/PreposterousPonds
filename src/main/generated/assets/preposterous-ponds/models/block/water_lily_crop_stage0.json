@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "preposterous-ponds:block/water_lily_crop_stage0"
+  }
+}

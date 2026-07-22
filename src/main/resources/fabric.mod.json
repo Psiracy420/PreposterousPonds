@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "preposterous-ponds",
+	"version": "${version}",
+	"name": "Preposterous Ponds",
+	"description": "It adds Ponds :)",
+	"authors": [
+		"Psiracy"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": ""
+	},
+	"license": "MIT",
+	"icon": "assets/preposterous-ponds/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.psiracy.preposterousponds.PreposterousPonds"
+		],
+		"client": [
+			"com.psiracy.preposterousponds.PreposterousPondsClient"
+		],
+		"fabric-datagen": [
+			"com.psiracy.preposterousponds.PreposterousPondsDataGenerator"
+		]
+	},
+	"mixins": [
+		"preposterous-ponds.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
