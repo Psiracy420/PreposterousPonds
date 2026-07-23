@@ -1,6 +1,5 @@
 package com.psiracy.preposterousponds.datagen;
 
-import com.psiracy.preposterousponds.world.ModWorldGen;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.core.HolderLookup;
@@ -21,7 +20,6 @@ public class ModRegistryDataProvider extends FabricDynamicRegistryProvider
     {
         entries.addAll(provider.lookupOrThrow(Registries.DIMENSION_TYPE));
         entries.addAll(provider.lookupOrThrow(Registries.LEVEL_STEM));
-        entries.addAll(provider.lookupOrThrow(Registries.NOISE_SETTINGS));
     }
 
     @Override

@@ -1,11 +1,29 @@
 {
   "type": "preposterous-ponds:ponddim_type",
   "generator": {
-    "type": "minecraft:noise",
-    "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "minecraft:beach"
-    },
-    "settings": "minecraft:end"
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:deep_ocean",
+      "features": false,
+      "lakes": false,
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 1
+        },
+        {
+          "block": "minecraft:stone",
+          "height": 44
+        },
+        {
+          "block": "minecraft:gravel",
+          "height": 3
+        },
+        {
+          "block": "minecraft:water",
+          "height": 16
+        }
+      ]
+    }
   }
 }

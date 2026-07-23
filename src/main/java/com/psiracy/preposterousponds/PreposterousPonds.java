@@ -6,6 +6,7 @@ import com.psiracy.preposterousponds.entity.boss.prince.PrinceOfThePondEntity;
 import com.psiracy.preposterousponds.entity.custom.GooseEntity;
 import com.psiracy.preposterousponds.item.ModCreativeModeTabs;
 import com.psiracy.preposterousponds.item.ModItems;
+import com.psiracy.preposterousponds.world.structure.PrinceArenaStructure;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -27,6 +28,8 @@ public class PreposterousPonds implements ModInitializer
 		ModBlocks.registerModBlocks();
 
 		ModEntities.registerModEntities();
+
+		PrinceArenaStructure.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.PRINCE, PrinceOfThePondEntity.createPrinceOfThePondAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.GOOSE, GooseEntity.createAttributes());

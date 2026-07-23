@@ -1,34 +1,27 @@
 package com.psiracy.preposterousponds.world.dimension;
 
 import com.psiracy.preposterousponds.PreposterousPonds;
-import com.psiracy.preposterousponds.world.ModWorldGen;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.DimensionTypes;
-import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TimelineTags;
 import net.minecraft.util.ARGB;
-import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.attribute.*;
 import net.minecraft.world.clock.WorldClocks;
 import net.minecraft.world.level.CardinalLighting;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.biome.Climate;
-import net.minecraft.world.level.biome.FixedBiomeSource;
-import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
-import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
-import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
+import net.minecraft.world.level.levelgen.FlatLevelSource;
+import net.minecraft.world.level.levelgen.flat.FlatLayerInfo;
+import net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorSettings;
 
 import java.util.List;
 import java.util.Optional;
@@ -85,16 +78,34 @@ public class ModDimensions
     public static void bootstrapStem(BootstrapContext<LevelStem> context)
     {
         var biomes = context.lookup(Registries.BIOME);
+        var blocks = context.lookup(Registries.BLOCK);
+        var features = context.lookup(Registries.PLACED_FEATURE);
+        var structure = context.lookup(Registries.STRUCTURE_SET);
         var dimensionTypes = context.lookup(Registries.DIMENSION_TYPE);
-        var noiseGen = context.lookup(Registries.NOISE_SETTINGS);
 
-        NoiseBasedChunkGenerator fixedBiome = new NoiseBasedChunkGenerator
-                (
-                        new FixedBiomeSource(biomes.getOrThrow(Biomes.BEACH)),
-                        noiseGen.getOrThrow(ModWorldGen.POND_ISLANDS)
-                );
+        FlatLevelGeneratorSettings oceanSettings =
+                new FlatLevelGeneratorSettings(Optional.empty(), biomes.getOrThrow(Biomes.DEEP_OCEAN), List.of());
 
-        LevelStem stem = new LevelStem(dimensionTypes.getOrThrow(ModDimensions.PONDDIM_TYPE_KEY), fixedBiome);
+        oceanSettings.getLayersInfo().add(
+                new FlatLayerInfo(1, Blocks.BEDROCK)
+        );
+
+        oceanSettings.getLayersInfo().add(
+                new FlatLayerInfo(44, Blocks.STONE)
+        );
+
+        oceanSettings.getLayersInfo().add(
+                new FlatLayerInfo(3, Blocks.GRAVEL)
+        );
+
+        oceanSettings.getLayersInfo().add(
+                new FlatLayerInfo(16, Blocks.WATER)
+        );
+
+        oceanSettings.updateLayers();
+        FlatLevelSource oceanGenerator = new FlatLevelSource(oceanSettings);
+
+        LevelStem stem = new LevelStem(dimensionTypes.getOrThrow(ModDimensions.PONDDIM_TYPE_KEY), oceanGenerator);
         context.register(PONDDIM_KEY, stem);
     }
 }

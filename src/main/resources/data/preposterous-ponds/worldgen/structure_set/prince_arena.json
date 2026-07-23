@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "preposterous-ponds:prince_arena",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 42069420,
+    "spacing": 80,
+    "separation": 13
+  }
+}

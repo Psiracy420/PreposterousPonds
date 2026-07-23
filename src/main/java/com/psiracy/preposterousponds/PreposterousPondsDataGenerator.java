@@ -1,7 +1,6 @@
 package com.psiracy.preposterousponds;
 
 import com.psiracy.preposterousponds.datagen.*;
-import com.psiracy.preposterousponds.world.ModWorldGen;
 import com.psiracy.preposterousponds.world.dimension.ModDimensions;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -28,6 +27,5 @@ public class PreposterousPondsDataGenerator implements DataGeneratorEntrypoint
 	{
 		registryBuilder.add(Registries.LEVEL_STEM, ModDimensions::bootstrapStem);
 		registryBuilder.add(Registries.DIMENSION_TYPE, ModDimensions::bootstrapType);
-		//registryBuilder.add(Registries.NOISE_SETTINGS, ModWorldGen::bootstrap);
 	}
 }
