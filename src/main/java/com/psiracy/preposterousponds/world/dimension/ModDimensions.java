@@ -42,7 +42,7 @@ public class ModDimensions
         HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
         EnvironmentAttributeMap pondAttributes = EnvironmentAttributeMap.builder()
                 .set(EnvironmentAttributes.FOG_COLOR, -7342096)
-                .set(EnvironmentAttributes.SKY_COLOR, -14687274)
+                .set(EnvironmentAttributes.SKY_COLOR, 6717439)
                 .set(EnvironmentAttributes.AMBIENT_LIGHT_COLOR, -16119286)
                 .set(EnvironmentAttributes.CLOUD_COLOR, ARGB.white(0.8F))
                 .set(EnvironmentAttributes.CLOUD_HEIGHT, 192.33F)
@@ -84,7 +84,7 @@ public class ModDimensions
         var dimensionTypes = context.lookup(Registries.DIMENSION_TYPE);
 
         FlatLevelGeneratorSettings oceanSettings =
-                new FlatLevelGeneratorSettings(Optional.empty(), biomes.getOrThrow(Biomes.DEEP_OCEAN), List.of());
+                new FlatLevelGeneratorSettings(Optional.empty(), biomes.getOrThrow(Biomes.THE_VOID), List.of());
 
         oceanSettings.getLayersInfo().add(
                 new FlatLayerInfo(1, Blocks.BEDROCK)

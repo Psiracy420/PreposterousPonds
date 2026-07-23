@@ -163,8 +163,8 @@ public class PrinceOfThePondEntity extends Monster
                 .add(Attributes.MOVEMENT_SPEED, 0.35)
                 .add(Attributes.MOVEMENT_EFFICIENCY, 1.0)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.5)
-                .add(Attributes.ATTACK_DAMAGE, 45.0)
+                .add(Attributes.ATTACK_KNOCKBACK, 2.5)
+                .add(Attributes.ATTACK_DAMAGE, 50.0)
                 .add(Attributes.FOLLOW_RANGE, 64.0);
     }
 

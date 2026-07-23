@@ -56,7 +56,7 @@ public class PrinceAttackGoal extends Goal
     private static final float LASER_TURN_SPEED = 0.2F;
     private static final float LASER_LENGTH = 40f;
     private static final float LASER_RADIUS = 0.75f;
-    private static final float LASER_DOT_DMG = 1.25f;
+    private static final float LASER_DOT_DMG = 16.25f;
 
     private static final int WING_WINDUP = 5;
     private static final int WING_END = 18;
